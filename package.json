@@ -2,6 +2,7 @@
   "name": "interview-booking-dashboard",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "http://t882200.github.io/booking",
   "dependencies": {
     "moment": "^2.24.0",
     "node-sass": "^4.11.0",
