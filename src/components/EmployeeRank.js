@@ -10,13 +10,12 @@ export default class EmployeeRank extends Component{
         this.state={
             arEmployees:[],
         }
-        // bind "this" to "self" for securing code
-        
 
         this.fetchAndRankEmployees("https://interview-booking-api.herokuapp.com/api/bookings")
-
     }
     
+    
+
     
     
     // method that fetching employees object from API and rank it. using Fetch API and moment
@@ -88,7 +87,7 @@ export default class EmployeeRank extends Component{
     // render the rank results to the page
     render(){
         return (
-            <div style={styles.wrapper}>
+            <div style={styles.wrapper} onLoad={this.props.action}>
                 <div style={styles.title}>Employee stats:</div>
                 {
                     // map through any employee

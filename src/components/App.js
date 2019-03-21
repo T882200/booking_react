@@ -11,14 +11,25 @@ export default class App extends Component {
     constructor(){
         super();
         
+        // Bind the this context to the handler function
+        this.handler = this.handler.bind(this);
+        
+        // Set some state
         this.state={
             loading:true,
+            messageShown: false
         }
     }
-    
-    // stoploading() {
-    //     this.setState({loading:false})
-    // }
+    // Loading handler - use to preview the loading screen
+    // This method will be sent to the child component
+    handler() {
+        this.setState({
+            loading: false
+        });
+        
+        // console checing
+        this.state.loading ? console.log("loading:Yes") : console.log("loading:No");
+    }
     
 
     render() {
@@ -41,7 +52,8 @@ export default class App extends Component {
                         <HLRooms/>
                         <hr style={styles.hr} />
                         {/*component that present top 3 employees*/}
-                        <EmployeeRank />
+                        {/*Render the child component and set the action property with the handler as value*/}
+                        <EmployeeRank action={this.handler} />
                         {/*<EmployeeChart/>*/}
                     </div>
                 </LoadingScreen>
